@@ -1,68 +1,563 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruchita Saraf — AI/ML Engineer</title>
+<meta name="description" content="AI/ML Engineer specializing in multi-agent GenAI systems, LangGraph pipelines, and production ML. BTech CS @ RVITM Bengaluru, 2027 batch.">
+<meta property="og:title" content="Ruchita Saraf — AI/ML Engineer">
+<meta property="og:description" content="Building multi-agent GenAI systems, ML pipelines, and data-driven applications that scale.">
+<meta property="og:url" content="https://ruchita0131.github.io">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ruchita Saraf — AI/ML Engineer">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='url(%23g)'/><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%236366F1'/><stop offset='100%25' stop-color='%238B5CF6'/></linearGradient></defs><text x='16' y='22' font-family='sans-serif' font-weight='700' font-size='16' text-anchor='middle' fill='white'>R</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#050816;--bg-card:rgba(15,23,42,0.7);
+  --text:#E2E8F0;--text-muted:#94A3B8;
+  --indigo:#6366F1;--purple:#8B5CF6;--cyan:#06B6D4;
+  --border:rgba(99,102,241,0.15);
+  --radius:14px;
+}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:#0F172A}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--indigo),var(--purple));border-radius:3px}
+::selection{background:rgba(99,102,241,0.3);color:#fff}
 
-    <!-- Primary Meta Tags -->
-    <title>Ruchita Saraf — AI/ML Engineer | Portfolio</title>
-    <meta name="title" content="Ruchita Saraf — AI/ML Engineer | Portfolio" />
-    <meta name="description" content="AI/ML Engineer specializing in multi-agent GenAI systems, LangGraph pipelines, and production ML. BTech CS @ RVITM Bengaluru, 2027 batch." />
-    <meta name="keywords" content="Ruchita Saraf, AI Engineer, ML Engineer, LangGraph, Gemini API, FastAPI, BERT, Python, Portfolio" />
-    <meta name="author" content="Ruchita Saraf" />
-    <meta name="robots" content="index, follow" />
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,8,22,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+.nav-brand{font-weight:800;font-size:1.1rem;color:#fff;text-decoration:none;letter-spacing:-0.03em}
+.nav-brand span{background:linear-gradient(135deg,var(--indigo),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:0.25rem;list-style:none}
+.nav-links a{font-size:0.85rem;font-weight:500;color:var(--text-muted);text-decoration:none;padding:0.4rem 0.9rem;border-radius:8px;transition:all .2s}
+.nav-links a:hover{color:#fff;background:rgba(99,102,241,0.1)}
+.nav-cta{background:linear-gradient(135deg,var(--indigo),var(--purple));color:#fff;padding:0.5rem 1.2rem;border-radius:9px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:all .2s;box-shadow:0 4px 16px rgba(99,102,241,0.3)}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(99,102,241,0.45)}
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ruchitasaraf.dev/" />
-    <meta property="og:title" content="Ruchita Saraf — AI/ML Engineer" />
-    <meta property="og:description" content="Building intelligent multi-agent systems, ML pipelines, and GenAI applications. Available for internships · 2027 batch." />
-    <meta property="og:image" content="/og-image.png" />
+/* HERO */
+.hero{min-height:100vh;padding:120px 2rem 80px;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;max-width:1200px;margin:0 auto;position:relative}
+.hero::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 60% 50% at 30% 50%,rgba(99,102,241,0.08) 0%,transparent 70%);pointer-events:none;z-index:0}
+.hero-left{position:relative;z-index:1}
+.badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(16,185,129,0.1);color:#4ADE80;border:1px solid rgba(16,185,129,0.2);font-size:0.75rem;font-weight:600;padding:0.35rem 0.9rem;border-radius:20px;margin-bottom:1.5rem;font-family:'JetBrains Mono',monospace}
+.badge::before{content:'';width:6px;height:6px;background:#4ADE80;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.hero-name{font-size:clamp(3rem,6vw,5.5rem);font-weight:800;letter-spacing:-0.05em;line-height:0.95;margin-bottom:0.75rem;color:#fff}
+.hero-name span{background:linear-gradient(135deg,var(--indigo) 0%,var(--purple) 50%,var(--cyan) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:none}
+.hero-role{font-size:1.1rem;color:var(--text-muted);margin-bottom:1.25rem;font-family:'JetBrains Mono',monospace}
+.hero-role em{color:var(--indigo);font-style:normal}
+.hero-desc{font-size:1rem;color:var(--text-muted);max-width:480px;margin-bottom:2rem;line-height:1.7}
+.chips{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2rem}
+.chip{padding:0.35rem 0.85rem;border-radius:20px;font-size:0.75rem;font-weight:600;font-family:'JetBrains Mono',monospace;border:1px solid;transition:all .2s}
+.chip-indigo{background:rgba(99,102,241,0.1);color:#818CF8;border-color:rgba(99,102,241,0.25)}
+.chip-purple{background:rgba(139,92,246,0.1);color:#A78BFA;border-color:rgba(139,92,246,0.25)}
+.chip-cyan{background:rgba(6,182,212,0.1);color:#22D3EE;border-color:rgba(6,182,212,0.25)}
+.chip-green{background:rgba(16,185,129,0.1);color:#34D399;border-color:rgba(16,185,129,0.25)}
+.hero-btns{display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn-primary{background:linear-gradient(135deg,var(--indigo),var(--purple));color:#fff;padding:0.75rem 1.6rem;border-radius:10px;font-weight:700;font-size:0.88rem;text-decoration:none;transition:all .2s;box-shadow:0 4px 20px rgba(99,102,241,0.35);display:inline-flex;align-items:center;gap:0.4rem}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(99,102,241,0.5)}
+.btn-outline{border:1px solid rgba(99,102,241,0.3);color:var(--text-muted);padding:0.75rem 1.6rem;border-radius:10px;font-weight:600;font-size:0.88rem;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:0.4rem}
+.btn-outline:hover{border-color:var(--indigo);color:#fff;background:rgba(99,102,241,0.08)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;padding-top:2rem;border-top:1px solid var(--border)}
+.stat-num{font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--indigo),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:0.25rem}
+.stat-label{font-size:0.72rem;color:var(--text-muted);line-height:1.3}
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://ruchitasaraf.dev/" />
-    <meta property="twitter:title" content="Ruchita Saraf — AI/ML Engineer" />
-    <meta property="twitter:description" content="Building intelligent multi-agent systems, ML pipelines, and GenAI applications." />
-    <meta property="twitter:image" content="/og-image.png" />
+/* PIPELINE */
+.pipeline-box{background:rgba(15,23,42,0.6);backdrop-filter:blur(12px);border:1px solid rgba(99,102,241,0.2);border-radius:var(--radius);overflow:hidden;box-shadow:0 0 60px rgba(99,102,241,0.1);position:relative;z-index:1}
+.pipeline-header{padding:.875rem 1.25rem;border-bottom:1px solid rgba(99,102,241,0.1);display:flex;align-items:center;gap:.75rem;background:rgba(15,23,42,0.5)}
+.dots{display:flex;gap:.375rem}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot-r{background:#EF4444;opacity:.7}
+.dot-y{background:#F59E0B;opacity:.7}
+.dot-g{background:#10B981;opacity:.7}
+.pipeline-title{font-size:.72rem;font-family:'JetBrains Mono',monospace;color:var(--text-muted)}
+.live-badge{margin-left:auto;display:flex;align-items:center;gap:.375rem;font-size:.68rem;font-family:'JetBrains Mono',monospace;color:#4ADE80}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#4ADE80;animation:pulse 1.5s infinite}
+.pipeline-body{padding:1.5rem 1rem}
+.pipeline-label-top{font-size:.7rem;font-weight:700;color:var(--text-muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.875rem;text-align:center}
+.pipeline-label-top span{color:var(--indigo)}
+.flow-line{stroke:rgba(99,102,241,0.2);stroke-width:1.5;fill:none;stroke-dasharray:4 3}
+.flow-pulse{fill:none;stroke-width:2;stroke-linecap:round;stroke-dasharray:12 100;stroke-dashoffset:100}
+.flow-pulse.p1{stroke:var(--indigo);animation:flowAnim 2.2s ease-in-out .0s infinite}
+.flow-pulse.p2{stroke:#10B981;animation:flowAnim 2.2s ease-in-out .44s infinite}
+.flow-pulse.p3{stroke:#F59E0B;animation:flowAnim 2.2s ease-in-out .88s infinite}
+.flow-pulse.p4{stroke:var(--cyan);animation:flowAnim 2.2s ease-in-out 1.32s infinite}
+@keyframes flowAnim{0%{stroke-dashoffset:120;opacity:0}15%{opacity:1}85%{opacity:1}100%{stroke-dashoffset:-10;opacity:0}}
+.pipeline-tags{padding:1rem 1.25rem;border-top:1px solid rgba(99,102,241,0.1);display:flex;flex-wrap:wrap;gap:.4rem}
+.p-tag{font-size:.68rem;font-family:'JetBrains Mono',monospace;color:var(--indigo);background:rgba(99,102,241,0.08);padding:.2rem .55rem;border-radius:4px}
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Ruchita Saraf",
-      "jobTitle": "AI/ML Engineer",
-      "url": "https://ruchitasaraf.dev",
-      "email": "Ruchitasaraf9@gmail.com",
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "Rashtreeya Vidyalaya Institute of Technology and Management"
-      },
-      "sameAs": [
-        "https://github.com/ruchita0131",
-        "https://www.linkedin.com/in/ruchita-saraf-592a54292"
-      ]
-    }
-    </script>
+/* SECTIONS */
+.section{padding:6rem 2rem;max-width:1200px;margin:0 auto}
+.section-divider{border:none;border-top:1px solid var(--border);max-width:1200px;margin:0 auto}
+.eyebrow{font-size:.72rem;font-weight:700;color:var(--indigo);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
+.eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--indigo)}
+.section-title{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;letter-spacing:-.04em;margin-bottom:.75rem;color:#fff}
+.section-title span{background:linear-gradient(135deg,var(--indigo),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-sub{font-size:.95rem;color:var(--text-muted);max-width:560px;margin-bottom:2.5rem;line-height:1.65}
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.25rem}
+.project-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius);padding:1.5rem;display:flex;flex-direction:column;transition:all .25s;position:relative;overflow:hidden}
+.project-card:hover{transform:translateY(-4px);border-color:rgba(99,102,241,0.3);box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 40px rgba(99,102,241,0.1)}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--indigo),transparent);opacity:0;transition:opacity .3s}
+.project-card:hover::before{opacity:1}
+.project-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem}
+.project-icon{width:2.5rem;height:2.5rem;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800}
+.project-status{font-size:.68rem;font-weight:600;padding:.25rem .65rem;border-radius:20px;font-family:'JetBrains Mono',monospace;white-space:nowrap}
+.status-deployed{background:rgba(16,185,129,0.12);color:#4ADE80;border:1px solid rgba(16,185,129,0.25)}
+.status-ongoing{background:rgba(245,158,11,0.12);color:#FCD34D;border:1px solid rgba(245,158,11,0.25)}
+.status-major{background:rgba(99,102,241,0.12);color:#818CF8;border:1px solid rgba(99,102,241,0.25)}
+.project-title{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:.25rem;letter-spacing:-.02em}
+.project-sub{font-size:.75rem;font-family:'JetBrains Mono',monospace;color:var(--text-muted);margin-bottom:.75rem}
+.project-desc{font-size:.84rem;color:var(--text-muted);line-height:1.6;flex:1;margin-bottom:1.25rem}
+.project-stack{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1.25rem}
+.stack-tag{font-size:.7rem;font-family:'JetBrains Mono',monospace;padding:.2rem .6rem;border-radius:5px;border:1px solid}
+.project-link{display:inline-flex;align-items:center;gap:.35rem;font-size:.8rem;font-weight:600;text-decoration:none;margin-top:auto;transition:gap .2s}
+.project-link:hover{gap:.6rem}
 
-    <style>
-      * { cursor: none !important; }
-      html { scroll-behavior: smooth; }
-    </style>
-    <script type="module" crossorigin src="/assets/index-8ACiLV4j.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-C4XtRtaP.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+/* EXPERIENCE */
+.exp-list{display:flex;flex-direction:column;gap:0}
+.exp-item{display:grid;grid-template-columns:160px 1fr;gap:2rem;padding:1.75rem 0;border-bottom:1px solid var(--border)}
+.exp-item:last-child{border-bottom:none}
+.exp-date{font-size:.78rem;font-family:'JetBrains Mono',monospace;color:var(--text-muted);padding-top:.2rem}
+.exp-role{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+.exp-company{font-size:.85rem;font-weight:600;color:var(--indigo);margin-bottom:.65rem}
+.exp-points{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+.exp-points li{font-size:.84rem;color:var(--text-muted);line-height:1.55;padding-left:1.25rem;position:relative}
+.exp-points li::before{content:'→';position:absolute;left:0;color:var(--indigo);font-size:.8rem}
+.exp-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.75rem}
+.exp-tag{font-size:.68rem;font-family:'JetBrains Mono',monospace;padding:.18rem .5rem;border-radius:4px;background:rgba(99,102,241,0.08);color:var(--indigo);border:1px solid rgba(99,102,241,0.15)}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.skill-group{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius);padding:1.4rem;transition:all .25s}
+.skill-group:hover{border-color:rgba(99,102,241,0.25);transform:translateY(-2px)}
+.skill-group-header{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem}
+.skill-group-icon{width:2rem;height:2rem;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.skill-group-label{font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.skill-tag{font-size:.74rem;font-family:'JetBrains Mono',monospace;padding:.3rem .7rem;border-radius:6px;border:1px solid rgba(255,255,255,0.06);color:var(--text-muted);background:rgba(255,255,255,0.03);transition:all .2s}
+.skill-tag:hover{border-color:rgba(99,102,241,0.3);color:#fff;background:rgba(99,102,241,0.08)}
+
+/* RESEARCH */
+.research-list{display:flex;flex-direction:column;gap:1rem}
+.research-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:all .25s;position:relative;overflow:hidden}
+.research-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:2px}
+.research-card:hover{transform:translateY(-2px);border-color:rgba(99,102,241,0.25);box-shadow:0 8px 40px rgba(0,0,0,0.3)}
+.research-icon-box{width:2.5rem;height:2.5rem;border-radius:10px;background:rgba(99,102,241,0.1);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.research-title{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:.25rem;line-height:1.4}
+.research-badges{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.5rem}
+.research-badge{font-size:.68rem;font-weight:600;padding:.2rem .55rem;border-radius:12px;font-family:'JetBrains Mono',monospace;border:1px solid}
+.research-meta{font-size:.8rem;color:var(--text-muted)}
+.research-meta strong{color:var(--indigo)}
+
+/* CONTACT */
+.contact-wrap{border-radius:var(--radius);padding:4rem 2rem;text-align:center;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(99,102,241,0.15) 0%,rgba(139,92,246,0.1) 50%,rgba(6,182,212,0.08) 100%);border:1px solid rgba(99,102,241,0.2)}
+.contact-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 0%,rgba(99,102,241,0.15) 0%,transparent 70%);pointer-events:none}
+.contact-wrap h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-.04em;color:#fff;margin-bottom:.75rem}
+.contact-wrap p{color:var(--text-muted);font-size:.95rem;margin-bottom:2.5rem;max-width:500px;margin-left:auto;margin-right:auto}
+.contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:.875rem}
+.contact-link{background:rgba(255,255,255,0.07);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.12);color:#fff;padding:.7rem 1.5rem;border-radius:10px;text-decoration:none;font-weight:600;font-size:.875rem;transition:all .2s;display:flex;align-items:center;gap:.5rem}
+.contact-link:hover{background:rgba(255,255,255,0.14);transform:translateY(-2px);border-color:rgba(99,102,241,0.5);box-shadow:0 8px 24px rgba(99,102,241,0.2)}
+.contact-link.primary{background:linear-gradient(135deg,var(--indigo),var(--purple));border-color:transparent;box-shadow:0 4px 20px rgba(99,102,241,0.4)}
+.contact-link.primary:hover{box-shadow:0 8px 32px rgba(99,102,241,0.6)}
+
+/* FOOTER */
+footer{text-align:center;padding:2rem;font-size:.78rem;color:var(--text-muted);border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace}
+
+/* GRID BG */
+body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(99,102,241,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr;gap:2rem;padding-top:100px}
+  .pipeline-box{order:-1}
+  .nav-links{display:none}
+  .exp-item{grid-template-columns:1fr;gap:.5rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .contact-links{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-brand">Ruchita<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:Ruchitasaraf9@gmail.com" class="nav-cta">Get in touch ↗</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="badge">● Available for Internships · 2027 Batch</div>
+    <div class="hero-name">Ruchita<br><span>Saraf</span></div>
+    <p class="hero-role"><em>// </em>AI Engineer · ML Engineer · GenAI Developer</p>
+    <p class="hero-desc">Architecting multi-agent AI systems, production ML pipelines, and data-driven applications. BTech CS @ RVITM, Bengaluru.</p>
+    <div class="chips">
+      <span class="chip chip-indigo">LangGraph</span>
+      <span class="chip chip-purple">Gemini API</span>
+      <span class="chip chip-cyan">FastAPI</span>
+      <span class="chip chip-green">BERT</span>
+      <span class="chip chip-indigo">XGBoost</span>
+      <span class="chip chip-purple">Python</span>
+      <span class="chip chip-cyan">RAG</span>
+      <span class="chip chip-green">SHAP</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View Projects →</a>
+      <a href="https://github.com/ruchita0131" target="_blank" class="btn-outline">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/ruchita-saraf-592a54292" target="_blank" class="btn-outline">LinkedIn ↗</a>
+    </div>
+    <div class="stats">
+      <div><div class="stat-num">2</div><div class="stat-label">Research Papers Published</div></div>
+      <div><div class="stat-num">5+</div><div class="stat-label">AI/ML Projects Shipped</div></div>
+      <div><div class="stat-num">8.73</div><div class="stat-label">CGPA</div></div>
+    </div>
+  </div>
+
+  <!-- PIPELINE VIZ -->
+  <div class="pipeline-box">
+    <div class="pipeline-header">
+      <div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
+      <span class="pipeline-title">smartemi_pipeline.py</span>
+      <span class="live-badge"><span class="live-dot"></span>Gemini + LangGraph · live</span>
+    </div>
+    <div class="pipeline-body">
+      <div class="pipeline-label-top">SmartEMI Planner — <span>5-Agent LangGraph Pipeline</span></div>
+      <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+        <defs>
+          <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#6366F1" opacity=".6"/>
+          </marker>
+        </defs>
+        <path d="M 61,100 L 93,100" class="flow-line"/>
+        <path d="M 125,100 L 157,100" class="flow-line"/>
+        <path d="M 189,100 L 221,100" class="flow-line"/>
+        <path d="M 253,100 L 285,100" class="flow-line"/>
+        <path d="M 61,100 L 93,100" class="flow-pulse p1" marker-end="url(#arr)"/>
+        <path d="M 125,100 L 157,100" class="flow-pulse p2" marker-end="url(#arr)"/>
+        <path d="M 189,100 L 221,100" class="flow-pulse p3" marker-end="url(#arr)"/>
+        <path d="M 253,100 L 285,100" class="flow-pulse p4" marker-end="url(#arr)"/>
+        <g transform="translate(30,100)">
+          <circle r="28" fill="rgba(99,102,241,.15)" stroke="#6366F1" stroke-width="1.5"/>
+          <text text-anchor="middle" dy="-5" font-family="JetBrains Mono,monospace" font-size="7" fill="#818CF8" font-weight="700">DATA</text>
+          <text text-anchor="middle" dy="6" font-family="Plus Jakarta Sans,sans-serif" font-size="5.5" fill="#64748B">Agent</text>
+        </g>
+        <g transform="translate(110,100)">
+          <circle r="28" fill="rgba(16,185,129,.15)" stroke="#10B981" stroke-width="1.5"/>
+          <text text-anchor="middle" dy="-5" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#10B981" font-weight="700">ANALYSIS</text>
+          <text text-anchor="middle" dy="6" font-family="Plus Jakarta Sans,sans-serif" font-size="5.5" fill="#64748B">Agent</text>
+        </g>
+        <g transform="translate(190,100)">
+          <circle r="28" fill="rgba(245,158,11,.15)" stroke="#F59E0B" stroke-width="1.5"/>
+          <text text-anchor="middle" dy="-5" font-family="JetBrains Mono,monospace" font-size="6" fill="#F59E0B" font-weight="700">OPTIMIZER</text>
+          <text text-anchor="middle" dy="6" font-family="Plus Jakarta Sans,sans-serif" font-size="5.5" fill="#64748B">Agent</text>
+        </g>
+        <g transform="translate(270,100)">
+          <circle r="28" fill="rgba(6,182,212,.15)" stroke="#06B6D4" stroke-width="1.5"/>
+          <text text-anchor="middle" dy="-5" font-family="JetBrains Mono,monospace" font-size="6" fill="#06B6D4" font-weight="700">FORECAST</text>
+          <text text-anchor="middle" dy="5" font-family="Plus Jakarta Sans,sans-serif" font-size="5.5" fill="#64748B">+ Advisor</text>
+        </g>
+        <rect x="112" y="22" width="96" height="17" rx="8" fill="rgba(99,102,241,0.1)" stroke="#6366F1" stroke-width=".8"/>
+        <text x="160" y="34" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7" fill="#818CF8" font-weight="600">Gemini API + LangGraph</text>
+        <line x1="160" y1="39" x2="160" y2="70" stroke="#6366F1" stroke-width=".8" stroke-dasharray="3 2" opacity=".4"/>
+        <rect x="96" y="148" width="128" height="18" rx="9" fill="rgba(6,182,212,0.1)" stroke="#06B6D4" stroke-width=".6"/>
+        <text x="160" y="160" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="7" fill="#22D3EE" font-weight="600">→ Repayment Strategy &amp; Forecast</text>
+      </svg>
+    </div>
+    <div class="pipeline-tags">
+      <span class="p-tag">FastAPI</span><span class="p-tag">React.js</span>
+      <span class="p-tag">SQLAlchemy</span><span class="p-tag">JWT</span>
+      <span class="p-tag">Vercel + Render</span>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="eyebrow">Portfolio</div>
+  <h2 class="section-title">Projects That <span>Ship to Production</span></h2>
+  <p class="section-sub">AI/ML systems built end-to-end — from research to deployment. Each project addresses real-world constraints.</p>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:rgba(99,102,241,0.15);color:#818CF8">S</div>
+        <span class="project-status status-deployed">Deployed</span>
+      </div>
+      <div class="project-title">SmartEMI Planner</div>
+      <div class="project-sub">Multi-Agent GenAI Finance System</div>
+      <p class="project-desc">Production-grade personal finance optimizer powered by a 5-agent LangGraph pipeline. Automated debt-to-income scoring, repayment strategy generation, and 12-month EMI forecasting — driven by prompt-engineered Gemini API workflows.</p>
+      <div class="project-stack">
+        <span class="stack-tag" style="background:rgba(99,102,241,0.08);color:#818CF8;border-color:rgba(99,102,241,0.2)">LangGraph</span>
+        <span class="stack-tag" style="background:rgba(99,102,241,0.08);color:#818CF8;border-color:rgba(99,102,241,0.2)">Gemini API</span>
+        <span class="stack-tag" style="background:rgba(99,102,241,0.08);color:#818CF8;border-color:rgba(99,102,241,0.2)">FastAPI</span>
+        <span class="stack-tag" style="background:rgba(99,102,241,0.08);color:#818CF8;border-color:rgba(99,102,241,0.2)">React.js</span>
+        <span class="stack-tag" style="background:rgba(99,102,241,0.08);color:#818CF8;border-color:rgba(99,102,241,0.2)">SQLAlchemy</span>
+        <span class="stack-tag" style="background:rgba(99,102,241,0.08);color:#818CF8;border-color:rgba(99,102,241,0.2)">JWT</span>
+      </div>
+      <a href="https://github.com/ruchita0131/SmartEMI-Planner" target="_blank" class="project-link" style="color:var(--indigo)">View on GitHub →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:rgba(139,92,246,0.15);color:#A78BFA">M</div>
+        <span class="project-status status-major">Major Project</span>
+      </div>
+      <div class="project-title">MindScreen</div>
+      <div class="project-sub">Multimodal Mental Health AI Platform</div>
+      <p class="project-desc">Cloud-native mental health risk assessment system fusing text (BERT), audio (CNN), and visual (LSTM) signals into a single explainable risk score with role-based clinical access control and SHAP/LIME interpretability.</p>
+      <div class="project-stack">
+        <span class="stack-tag" style="background:rgba(139,92,246,0.08);color:#A78BFA;border-color:rgba(139,92,246,0.2)">BERT</span>
+        <span class="stack-tag" style="background:rgba(139,92,246,0.08);color:#A78BFA;border-color:rgba(139,92,246,0.2)">CNN</span>
+        <span class="stack-tag" style="background:rgba(139,92,246,0.08);color:#A78BFA;border-color:rgba(139,92,246,0.2)">LSTM</span>
+        <span class="stack-tag" style="background:rgba(139,92,246,0.08);color:#A78BFA;border-color:rgba(139,92,246,0.2)">Docker</span>
+        <span class="stack-tag" style="background:rgba(139,92,246,0.08);color:#A78BFA;border-color:rgba(139,92,246,0.2)">AWS/Azure</span>
+        <span class="stack-tag" style="background:rgba(139,92,246,0.08);color:#A78BFA;border-color:rgba(139,92,246,0.2)">SHAP/LIME</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:rgba(6,182,212,0.15);color:#22D3EE">B</div>
+        <span class="project-status status-ongoing">In Progress</span>
+      </div>
+      <div class="project-title">Behavioral Credit Risk Assessment</div>
+      <div class="project-sub">ML Pipeline for New-to-Credit Users</div>
+      <p class="project-desc">End-to-end ML pipeline for credit risk using behavioral embeddings. Ensemble training (XGBoost + LightGBM + LSTM), Monte Carlo Dropout for uncertainty estimation, and SHAP explainability for regulatory transparency.</p>
+      <div class="project-stack">
+        <span class="stack-tag" style="background:rgba(6,182,212,0.08);color:#22D3EE;border-color:rgba(6,182,212,0.2)">Python</span>
+        <span class="stack-tag" style="background:rgba(6,182,212,0.08);color:#22D3EE;border-color:rgba(6,182,212,0.2)">XGBoost</span>
+        <span class="stack-tag" style="background:rgba(6,182,212,0.08);color:#22D3EE;border-color:rgba(6,182,212,0.2)">LightGBM</span>
+        <span class="stack-tag" style="background:rgba(6,182,212,0.08);color:#22D3EE;border-color:rgba(6,182,212,0.2)">LSTM</span>
+        <span class="stack-tag" style="background:rgba(6,182,212,0.08);color:#22D3EE;border-color:rgba(6,182,212,0.2)">SHAP</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon" style="background:rgba(16,185,129,0.15);color:#34D399">N</div>
+        <span class="project-status status-deployed">Completed</span>
+      </div>
+      <div class="project-title">Offline NFC Payments</div>
+      <div class="project-sub">Secure P2P Transactions Without Internet</div>
+      <p class="project-desc">Cryptographically secure phone-to-phone NFC payment system. 4-layer double-spend prevention with monotonic counters, nonce challenge-response, and mutual ECDSA receipt signing via Android Keystore.</p>
+      <div class="project-stack">
+        <span class="stack-tag" style="background:rgba(16,185,129,0.08);color:#34D399;border-color:rgba(16,185,129,0.2)">Kotlin</span>
+        <span class="stack-tag" style="background:rgba(16,185,129,0.08);color:#34D399;border-color:rgba(16,185,129,0.2)">Node.js</span>
+        <span class="stack-tag" style="background:rgba(16,185,129,0.08);color:#34D399;border-color:rgba(16,185,129,0.2)">TypeScript</span>
+        <span class="stack-tag" style="background:rgba(16,185,129,0.08);color:#34D399;border-color:rgba(16,185,129,0.2)">PostgreSQL</span>
+        <span class="stack-tag" style="background:rgba(16,185,129,0.08);color:#34D399;border-color:rgba(16,185,129,0.2)">ECDSA</span>
+      </div>
+      <a href="https://github.com/ruchita0131/nfc-payments" target="_blank" class="project-link" style="color:#34D399">View on GitHub →</a>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="eyebrow">Work</div>
+  <h2 class="section-title">Where I've <span>Built & Shipped</span></h2>
+  <p class="section-sub">Industry experience in ML engineering and agentic AI systems.</p>
+  <div class="exp-list">
+    <div class="exp-item">
+      <div class="exp-date">Aug – Nov 2025</div>
+      <div>
+        <div class="exp-role">Invoice Data Extraction Intern</div>
+        <div class="exp-company">CMBK Consultancy · Bengaluru</div>
+        <ul class="exp-points">
+          <li>Engineered an end-to-end Python ML pipeline to extract structured financial data from unstructured invoice documents — reduced manual effort by 30% and improved accuracy by 20%.</li>
+          <li>Automated document classification, field extraction, and validation workflows for large-scale financial document processing.</li>
+          <li>Recipient of RVITM Merit Award for outstanding performance during this internship.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Python</span><span class="exp-tag">ML Pipeline</span><span class="exp-tag">FastAPI</span><span class="exp-tag">Document AI</span>
+        </div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">Jun 2025</div>
+      <div>
+        <div class="exp-role">Agentic AI Intern</div>
+        <div class="exp-company">Capbl · Bengaluru</div>
+        <ul class="exp-points">
+          <li>Built and orchestrated production GenAI applications with autonomous multi-step agentic workflows under senior engineering mentorship.</li>
+          <li>Designed multi-agent systems that autonomously decompose complex tasks with memory and tool-use capabilities.</li>
+          <li>Participated in hackathons, structured code reviews, and cross-functional problem-solving sessions.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">LangGraph</span><span class="exp-tag">Agentic AI</span><span class="exp-tag">Gemini API</span><span class="exp-tag">RAG</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="eyebrow">Toolkit</div>
+  <h2 class="section-title">Technologies I <span>Build With</span></h2>
+  <p class="section-sub">A curated stack across AI/ML, backend, frontend, and cloud — everything I need to ship production-grade systems.</p>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-group-icon" style="background:rgba(245,158,11,.1)">⚡</div>
+        <div class="skill-group-label" style="color:#F59E0B">Languages</div>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span><span class="skill-tag">SQL</span>
+        <span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">C++</span><span class="skill-tag">Java</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-group-icon" style="background:rgba(99,102,241,.1)">🧠</div>
+        <div class="skill-group-label" style="color:var(--indigo)">GenAI & Agentic AI</div>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag">LangGraph</span><span class="skill-tag">Gemini API</span>
+        <span class="skill-tag">Claude API</span><span class="skill-tag">Prompt Engineering</span>
+        <span class="skill-tag">RAG</span><span class="skill-tag">LLMs</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-group-icon" style="background:rgba(6,182,212,.1)">📊</div>
+        <div class="skill-group-label" style="color:var(--cyan)">ML & Data Science</div>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag">Scikit-Learn</span><span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">XGBoost</span><span class="skill-tag">LightGBM</span>
+        <span class="skill-tag">BERT</span><span class="skill-tag">SHAP/LIME</span>
+        <span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-group-icon" style="background:rgba(139,92,246,.1)">⚙️</div>
+        <div class="skill-group-label" style="color:var(--purple)">Backend & APIs</div>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag">FastAPI</span><span class="skill-tag">Node.js</span>
+        <span class="skill-tag">REST APIs</span><span class="skill-tag">JWT Auth</span>
+        <span class="skill-tag">SQLAlchemy</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-group-icon" style="background:rgba(236,72,153,.1)">🎨</div>
+        <div class="skill-group-label" style="color:#EC4899">Frontend</div>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag">React.js</span><span class="skill-tag">Angular</span>
+        <span class="skill-tag">TailwindCSS</span><span class="skill-tag">Vite</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-group-icon" style="background:rgba(16,185,129,.1)">☁️</div>
+        <div class="skill-group-label" style="color:#10B981">Databases & Cloud</div>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag">PostgreSQL</span><span class="skill-tag">MySQL</span>
+        <span class="skill-tag">Firebase</span><span class="skill-tag">Docker</span>
+        <span class="skill-tag">AWS</span><span class="skill-tag">Git</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- RESEARCH -->
+<section class="section" id="research">
+  <div class="eyebrow">Publications & Awards</div>
+  <h2 class="section-title">Research & <span>Recognition</span></h2>
+  <p class="section-sub">Peer-reviewed publications in ML and data science, alongside academic recognition for technical excellence.</p>
+  <div class="research-list">
+    <div class="research-card" style="border-left:3px solid var(--indigo)">
+      <div class="research-icon-box">📄</div>
+      <div>
+        <div class="research-badges">
+          <span class="research-badge" style="background:rgba(99,102,241,.1);color:#818CF8;border-color:rgba(99,102,241,.25)">Journal</span>
+          <span class="research-badge" style="background:rgba(16,185,129,.1);color:#4ADE80;border-color:rgba(16,185,129,.25)">Published</span>
+        </div>
+        <div class="research-title">Hybrid LSTM and Ensemble Model for Credit Card Fraud Detection</div>
+        <div class="research-meta">IJCOPE Journal · <strong>Published May 2026</strong></div>
+      </div>
+    </div>
+    <div class="research-card" style="border-left:3px solid #EC4899">
+      <div class="research-icon-box">📄</div>
+      <div>
+        <div class="research-badges">
+          <span class="research-badge" style="background:rgba(236,72,153,.1);color:#F472B6;border-color:rgba(236,72,153,.25)">Journal</span>
+          <span class="research-badge" style="background:rgba(16,185,129,.1);color:#4ADE80;border-color:rgba(16,185,129,.25)">Published</span>
+        </div>
+        <div class="research-title">Detection of Cardiovascular Disease Risk Using Heart Rate Variability and Machine Learning</div>
+        <div class="research-meta">Research Publication · <strong>2026</strong></div>
+      </div>
+    </div>
+    <div class="research-card" style="border-left:3px solid #F59E0B">
+      <div class="research-icon-box">🏆</div>
+      <div>
+        <div class="research-badges">
+          <span class="research-badge" style="background:rgba(245,158,11,.1);color:#FCD34D;border-color:rgba(245,158,11,.25)">Award</span>
+        </div>
+        <div class="research-title">RVITM Merit Award — Outstanding Performance during CMBK Consultancy Internship</div>
+        <div class="research-meta">RVITM Bengaluru · <strong>2026</strong></div>
+      </div>
+    </div>
+    <div class="research-card" style="border-left:3px solid var(--cyan)">
+      <div class="research-icon-box">🎓</div>
+      <div>
+        <div class="research-badges">
+          <span class="research-badge" style="background:rgba(6,182,212,.1);color:#22D3EE;border-color:rgba(6,182,212,.25)">Certification</span>
+        </div>
+        <div class="research-title">Machine Learning A–Z Certification</div>
+        <div class="research-meta">Udemy · <strong>2025</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="contact-wrap">
+    <h2>Let's build something intelligent together</h2>
+    <p>Open to AI/ML internship opportunities · 2027 batch · Based in Bengaluru, India</p>
+    <div class="contact-links">
+      <a href="mailto:Ruchitasaraf9@gmail.com" class="contact-link primary">✉️ Ruchitasaraf9@gmail.com</a>
+      <a href="https://github.com/ruchita0131" target="_blank" class="contact-link">⌥ GitHub</a>
+      <a href="https://www.linkedin.com/in/ruchita-saraf-592a54292" target="_blank" class="contact-link">in LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Ruchita Saraf · AI/ML Engineer · RVITM Bengaluru · 2027 Batch · Built with ♥
+</footer>
+
+</body>
 </html>
