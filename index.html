@@ -1,485 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ruchita Saraf — AI/ML Engineer</title>
-<meta name="description" content="AI/ML Engineer specializing in multi-agent GenAI systems, LangGraph pipelines, and production ML. BTech CS @ RVITM Bengaluru, 2027 batch.">
-<meta property="og:title" content="Ruchita Saraf — AI/ML Engineer">
-<meta property="og:description" content="Building intelligent multi-agent systems, ML pipelines, and GenAI applications.">
-<meta property="og:url" content="https://ruchita0131.github.io">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #F8FAFC;
-    --bg-alt: #FFFFFF;
-    --text: #0F172A;
-    --text-muted: #64748B;
-    --accent: #6366F1;
-    --accent-light: #EEF2FF;
-    --accent-2: #0EA5E9;
-    --border: #E2E8F0;
-    --shadow: 0 4px 24px rgba(99,102,241,0.08);
-    --shadow-lg: 0 12px 40px rgba(99,102,241,0.14);
-    --radius: 12px;
-    --radius-sm: 8px;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(248,250,252,0.88);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
-    height: 60px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .nav-brand { font-weight: 700; font-size: 1rem; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
-  .nav-brand span { color: var(--accent); }
-  .nav-links { display: flex; gap: 1.75rem; list-style: none; }
-  .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--accent); }
-  .nav-cta { background: var(--accent); color: white; padding: 0.45rem 1.1rem; border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none; transition: opacity 0.2s; }
-  .nav-cta:hover { opacity: 0.88; }
+    <!-- Primary Meta Tags -->
+    <title>Ruchita Saraf — AI/ML Engineer | Portfolio</title>
+    <meta name="title" content="Ruchita Saraf — AI/ML Engineer | Portfolio" />
+    <meta name="description" content="AI/ML Engineer specializing in multi-agent GenAI systems, LangGraph pipelines, and production ML. BTech CS @ RVITM Bengaluru, 2027 batch." />
+    <meta name="keywords" content="Ruchita Saraf, AI Engineer, ML Engineer, LangGraph, Gemini API, FastAPI, BERT, Python, Portfolio" />
+    <meta name="author" content="Ruchita Saraf" />
+    <meta name="robots" content="index, follow" />
 
-  /* HERO */
-  .hero {
-    min-height: 100vh; padding: 100px 2rem 60px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
-    align-items: center; max-width: 1100px; margin: 0 auto;
-  }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--accent-light); color: var(--accent);
-    font-size: 0.78rem; font-weight: 600;
-    padding: 0.35rem 0.85rem; border-radius: 20px;
-    letter-spacing: 0.04em; text-transform: uppercase;
-    margin-bottom: 1.25rem;
-  }
-  .hero-eyebrow::before {
-    content: ''; width: 6px; height: 6px;
-    background: var(--accent); border-radius: 50%;
-    animation: pulse-dot 1.8s infinite;
-  }
-  @keyframes pulse-dot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.7); }
-  }
-  .hero h1 { font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 0.5rem; }
-  .hero h1 span { color: var(--accent); }
-  .hero-subtitle { font-size: 1rem; color: var(--text-muted); font-weight: 400; margin-bottom: 1.5rem; max-width: 440px; }
-  .hero-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
-  .chip { background: var(--bg-alt); border: 1px solid var(--border); color: var(--text-muted); font-size: 0.78rem; font-weight: 500; padding: 0.3rem 0.75rem; border-radius: 20px; font-family: 'JetBrains Mono', monospace; }
-  .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-  .btn-primary { background: var(--accent); color: white; padding: 0.7rem 1.5rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.88rem; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 12px rgba(99,102,241,0.3); }
-  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(99,102,241,0.4); }
-  .btn-outline { border: 1.5px solid var(--border); color: var(--text); padding: 0.7rem 1.5rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.88rem; text-decoration: none; transition: all 0.2s; background: var(--bg-alt); }
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ruchitasaraf.dev/" />
+    <meta property="og:title" content="Ruchita Saraf — AI/ML Engineer" />
+    <meta property="og:description" content="Building intelligent multi-agent systems, ML pipelines, and GenAI applications. Available for internships · 2027 batch." />
+    <meta property="og:image" content="/og-image.png" />
 
-  /* PIPELINE */
-  .pipeline-container { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem 1rem; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
-  .pipeline-label { font-size: 0.72rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1rem; text-align: center; }
-  .pipeline-label span { color: var(--accent); }
-  .pipeline-svg-wrap { width: 100%; overflow: visible; }
-  .pipeline-svg-wrap svg { width: 100%; height: auto; }
-  .agent-node circle { fill: var(--bg-alt); stroke: var(--border); stroke-width: 1.5; transition: all 0.3s; }
-  .agent-node:hover circle { stroke: var(--accent); fill: var(--accent-light); }
-  .agent-node text.label { font-family: 'JetBrains Mono', monospace; font-size: 7px; font-weight: 500; fill: var(--text); text-anchor: middle; }
-  .agent-node text.role { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 5.5px; fill: var(--text-muted); text-anchor: middle; }
-  .flow-line { stroke: var(--border); stroke-width: 1.5; fill: none; stroke-dasharray: 4 3; }
-  .flow-pulse { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 12 100; stroke-dashoffset: 100; }
-  .flow-pulse.p1 { animation: flow-anim 2s ease-in-out 0s infinite; }
-  .flow-pulse.p2 { animation: flow-anim 2s ease-in-out 0.4s infinite; }
-  .flow-pulse.p3 { animation: flow-anim 2s ease-in-out 0.8s infinite; }
-  .flow-pulse.p4 { animation: flow-anim 2s ease-in-out 1.2s infinite; }
-  @keyframes flow-anim {
-    0%   { stroke-dashoffset: 120; opacity: 0; }
-    15%  { opacity: 1; }
-    85%  { opacity: 1; }
-    100% { stroke-dashoffset: -10; opacity: 0; }
-  }
-  .pipeline-footer { margin-top: 1rem; display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; }
-  .pipe-tag { font-size: 0.68rem; font-weight: 500; font-family: 'JetBrains Mono', monospace; color: var(--accent); background: var(--accent-light); padding: 0.2rem 0.55rem; border-radius: 4px; }
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://ruchitasaraf.dev/" />
+    <meta property="twitter:title" content="Ruchita Saraf — AI/ML Engineer" />
+    <meta property="twitter:description" content="Building intelligent multi-agent systems, ML pipelines, and GenAI applications." />
+    <meta property="twitter:image" content="/og-image.png" />
 
-  /* SECTIONS */
-  section { padding: 80px 2rem; max-width: 1100px; margin: 0 auto; }
-  .section-eyebrow { font-size: 0.75rem; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.6rem; }
-  .section-title { font-size: clamp(1.6rem, 2.5vw, 2.1rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
-  .section-sub { font-size: 0.92rem; color: var(--text-muted); max-width: 520px; margin-bottom: 2.5rem; }
-  .divider { border: none; border-top: 1px solid var(--border); max-width: 1100px; margin: 0 auto; }
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ruchita Saraf",
+      "jobTitle": "AI/ML Engineer",
+      "url": "https://ruchitasaraf.dev",
+      "email": "Ruchitasaraf9@gmail.com",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Rashtreeya Vidyalaya Institute of Technology and Management"
+      },
+      "sameAs": [
+        "https://github.com/ruchita0131",
+        "https://www.linkedin.com/in/ruchita-saraf-592a54292"
+      ]
+    }
+    </script>
 
-  /* PROJECTS */
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
-  .project-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); transition: all 0.25s; display: flex; flex-direction: column; }
-  .project-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: rgba(99,102,241,0.3); }
-  .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
-  .project-title { font-size: 0.98rem; font-weight: 700; letter-spacing: -0.02em; }
-  .project-status { font-size: 0.68rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 20px; white-space: nowrap; }
-  .status-done { background: #D1FAE5; color: #065F46; }
-  .status-ongoing { background: #FEF3C7; color: #92400E; }
-  .project-desc { font-size: 0.84rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.55; flex: 1; }
-  .project-stack { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
-  .stack-tag { font-size: 0.7rem; font-weight: 500; font-family: 'JetBrains Mono', monospace; background: var(--bg); border: 1px solid var(--border); color: var(--text-muted); padding: 0.2rem 0.5rem; border-radius: 4px; }
-  .project-link { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; font-weight: 600; color: var(--accent); text-decoration: none; margin-top: auto; transition: gap 0.2s; }
-  .project-link:hover { gap: 0.6rem; }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-  /* EXPERIENCE */
-  .exp-timeline { display: flex; flex-direction: column; gap: 0; }
-  .exp-item { display: grid; grid-template-columns: 140px 1fr; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
-  .exp-item:last-child { border-bottom: none; }
-  .exp-date { font-size: 0.78rem; font-weight: 500; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; padding-top: 0.15rem; }
-  .exp-role { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; }
-  .exp-company { font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 0.5rem; }
-  .exp-points { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
-  .exp-points li { font-size: 0.84rem; color: var(--text-muted); line-height: 1.5; padding-left: 1rem; position: relative; }
-  .exp-points li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; top: 0.05rem; }
-
-  /* SKILLS */
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
-  .skill-group { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
-  .skill-group-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .skill-tag { font-size: 0.75rem; font-weight: 500; background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 0.28rem 0.65rem; border-radius: 6px; font-family: 'JetBrains Mono', monospace; }
-
-  /* RESEARCH */
-  .research-list { display: flex; flex-direction: column; gap: 1rem; }
-  .research-item { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem; }
-  .research-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
-  .research-title { font-size: 0.92rem; font-weight: 600; margin-bottom: 0.2rem; }
-  .research-meta { font-size: 0.78rem; color: var(--text-muted); }
-  .research-meta span { color: var(--accent); font-weight: 600; }
-
-  /* CONTACT */
-  .contact-box { background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); border-radius: var(--radius); padding: 3rem 2rem; text-align: center; color: white; }
-  .contact-box h2 { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
-  .contact-box p { opacity: 0.85; font-size: 0.9rem; margin-bottom: 2rem; }
-  .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; }
-  .contact-link { background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25); color: white; padding: 0.6rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s; display: flex; align-items: center; gap: 0.4rem; }
-  .contact-link:hover { background: rgba(255,255,255,0.25); transform: translateY(-1px); }
-
-  /* FOOTER */
-  footer { text-align: center; padding: 2rem; font-size: 0.78rem; color: var(--text-muted); border-top: 1px solid var(--border); }
-
-  /* STATS */
-  .stats-row { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); }
-  .stat { display: flex; flex-direction: column; gap: 0.1rem; }
-  .stat-num { font-size: 1.4rem; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; line-height: 1; }
-  .stat-label { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; }
-
-  @media (max-width: 768px) {
-    .hero { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 90px; }
-    .pipeline-container { order: -1; }
-    .exp-item { grid-template-columns: 1fr; gap: 0.25rem; }
-    .exp-date { font-size: 0.72rem; }
-    .nav-links { display: none; }
-    .stats-row { gap: 1.25rem; }
-  }
-</style>
-</head>
-<body>
-
-<nav>
-  <a href="#" class="nav-brand">Ruchita<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#research">Research</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="mailto:Ruchitasaraf9@gmail.com" class="nav-cta">Get in touch</a>
-</nav>
-
-<section class="hero" style="padding-bottom:0">
-  <div class="hero-text">
-    <div class="hero-eyebrow">Available for internships · 2027 Batch</div>
-    <h1>Ruchita<br><span>Saraf</span></h1>
-    <p class="hero-subtitle">AI/ML Engineer building multi-agent GenAI systems, end-to-end ML pipelines, and data-driven applications. BTech CS @ RVITM, Bengaluru.</p>
-    <div class="hero-chips">
-      <span class="chip">LangGraph</span><span class="chip">Gemini API</span>
-      <span class="chip">FastAPI</span><span class="chip">BERT</span>
-      <span class="chip">XGBoost</span><span class="chip">Python</span>
-    </div>
-    <div class="hero-actions">
-      <a href="#projects" class="btn-primary">View projects →</a>
-      <a href="https://github.com/ruchita0131" target="_blank" class="btn-outline">GitHub ↗</a>
-      <a href="https://www.linkedin.com/in/ruchita-saraf-592a54292" target="_blank" class="btn-outline">LinkedIn ↗</a>
-    </div>
-    <div class="stats-row">
-      <div class="stat"><span class="stat-num">2</span><span class="stat-label">Research papers published</span></div>
-      <div class="stat"><span class="stat-num">5</span><span class="stat-label">AI/ML projects</span></div>
-      <div class="stat"><span class="stat-num">8.73</span><span class="stat-label">CGPA</span></div>
-    </div>
-  </div>
-
-  <div class="pipeline-container">
-    <div class="pipeline-label">SmartEMI Planner — <span>LangGraph Multi-Agent Pipeline</span></div>
-    <div class="pipeline-svg-wrap">
-      <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L6,3 L0,6 Z" fill="#6366F1" opacity="0.6"/>
-          </marker>
-        </defs>
-        <path d="M 64,100 L 96,100" class="flow-line"/>
-        <path d="M 128,100 L 160,100" class="flow-line"/>
-        <path d="M 192,100 L 224,100" class="flow-line"/>
-        <path d="M 64,100 L 96,100" class="flow-pulse p1" marker-end="url(#arrow)"/>
-        <path d="M 128,100 L 160,100" class="flow-pulse p2" marker-end="url(#arrow)"/>
-        <path d="M 192,100 L 224,100" class="flow-pulse p3" marker-end="url(#arrow)"/>
-        <g class="agent-node" transform="translate(32,100)">
-          <circle r="29" fill="#EEF2FF" stroke="#6366F1" stroke-width="1.5"/>
-          <text class="label" dy="-4" fill="#6366F1" font-weight="700">DATA</text>
-          <text class="role" dy="7" fill="#64748B">Agent</text>
-        </g>
-        <g class="agent-node" transform="translate(112,100)">
-          <circle r="29" fill="#F0FDF4" stroke="#10B981" stroke-width="1.5"/>
-          <text class="label" dy="-4" fill="#10B981" font-weight="700">ANALYSIS</text>
-          <text class="role" dy="7" fill="#64748B">Agent</text>
-        </g>
-        <g class="agent-node" transform="translate(192,100)">
-          <circle r="29" fill="#FFF7ED" stroke="#F59E0B" stroke-width="1.5"/>
-          <text class="label" dy="-4" fill="#F59E0B" font-weight="700">OPTIMIZER</text>
-          <text class="role" dy="7" fill="#64748B">Agent</text>
-        </g>
-        <g class="agent-node" transform="translate(272,100)">
-          <circle r="29" fill="#FDF4FF" stroke="#A855F7" stroke-width="1.5"/>
-          <text class="label" dy="-8" fill="#A855F7" font-weight="700">FORECAST</text>
-          <text class="role" dy="1" fill="#64748B">Agent</text>
-          <text class="role" dy="9" fill="#64748B">+ Advisor</text>
-        </g>
-        <rect x="128" y="22" width="64" height="18" rx="9" fill="#EEF2FF" stroke="#6366F1" stroke-width="0.8"/>
-        <text x="160" y="34" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#6366F1" font-weight="600">Gemini API + LangGraph</text>
-        <line x1="160" y1="40" x2="160" y2="70" stroke="#6366F1" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.5"/>
-        <rect x="104" y="148" width="112" height="20" rx="10" fill="#0EA5E9" opacity="0.12"/>
-        <text x="160" y="162" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="7" fill="#0369A1" font-weight="600">→ Repayment Strategy &amp; Forecast</text>
-      </svg>
-    </div>
-    <div class="pipeline-footer">
-      <span class="pipe-tag">FastAPI</span><span class="pipe-tag">React.js</span>
-      <span class="pipe-tag">SQLAlchemy</span><span class="pipe-tag">JWT</span><span class="pipe-tag">Vercel · Render</span>
-    </div>
-  </div>
-</section>
-
-<hr class="divider" style="margin-top:60px">
-
-<section id="projects">
-  <div class="section-eyebrow">Portfolio</div>
-  <h2 class="section-title">Projects</h2>
-  <p class="section-sub">AI/ML systems built end-to-end — from idea to deployment.</p>
-  <div class="projects-grid">
-
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-title">SmartEMI Planner</div>
-        <span class="project-status status-done">Deployed</span>
-      </div>
-      <p class="project-desc">Multi-agent GenAI personal finance optimizer. Built a 5-agent LangGraph pipeline (Data → Analysis → Optimizer → Forecast → Advisor) with prompt-engineered Gemini API workflows for automated debt-to-income scoring and repayment strategy recommendations.</p>
-      <div class="project-stack">
-        <span class="stack-tag">LangGraph</span><span class="stack-tag">Gemini API</span>
-        <span class="stack-tag">FastAPI</span><span class="stack-tag">React.js</span>
-        <span class="stack-tag">SQLAlchemy</span><span class="stack-tag">JWT</span>
-      </div>
-      <a href="https://github.com/ruchita0131/SmartEMI-Planner" target="_blank" class="project-link">View on GitHub →</a>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-title">Behavioral Credit Risk Assessment</div>
-        <span class="project-status status-ongoing">In Progress</span>
-      </div>
-      <p class="project-desc">End-to-end ML pipeline for credit risk assessment of new-to-credit users. Covers feature engineering, ensemble training (XGBoost, LightGBM, LSTM) using behavioral embeddings, Monte Carlo Dropout for uncertainty estimation and SHAP explainability.</p>
-      <div class="project-stack">
-        <span class="stack-tag">Python</span><span class="stack-tag">XGBoost</span>
-        <span class="stack-tag">LightGBM</span><span class="stack-tag">LSTM</span>
-        <span class="stack-tag">SHAP</span><span class="stack-tag">Monte Carlo Dropout</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-title">MindScreen</div>
-        <span class="project-status status-ongoing">Major Project</span>
-      </div>
-      <p class="project-desc">Multimodal mental health risk assessment system. Combines BERT-based NLP, CNN/LSTM models for audio and visual signals, fused into an explainable risk score. Cloud-native on AWS/Azure with SHAP/LIME interpretability and role-based access control.</p>
-      <div class="project-stack">
-        <span class="stack-tag">BERT</span><span class="stack-tag">CNN</span>
-        <span class="stack-tag">LSTM</span><span class="stack-tag">Docker</span>
-        <span class="stack-tag">AWS/Azure</span><span class="stack-tag">SHAP/LIME</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-title">Offline NFC Payments</div>
-        <span class="project-status status-done">Completed</span>
-      </div>
-      <p class="project-desc">Secure phone-to-phone NFC transaction system that works without internet. Native Android HCE app + Node.js/TypeScript backend. 4-layer double-spend prevention using monotonic counters, nonce challenge-response, and mutual ECDSA receipt signing via Android Keystore.</p>
-      <div class="project-stack">
-        <span class="stack-tag">Kotlin</span><span class="stack-tag">Node.js</span>
-        <span class="stack-tag">TypeScript</span><span class="stack-tag">PostgreSQL</span>
-        <span class="stack-tag">ECDSA</span><span class="stack-tag">HMAC-SHA256</span>
-      </div>
-      <a href="https://github.com/ruchita0131/nfc-payments" target="_blank" class="project-link">View on GitHub →</a>
-    </div>
-
-  </div>
-</section>
-
-<hr class="divider">
-
-<section id="experience">
-  <div class="section-eyebrow">Work</div>
-  <h2 class="section-title">Experience</h2>
-  <p class="section-sub">Hands-on industry experience in ML pipelines and agentic AI.</p>
-  <div class="exp-timeline">
-    <div class="exp-item">
-      <div class="exp-date">Aug – Nov 2025</div>
-      <div>
-        <div class="exp-role">Invoice Data Extraction Intern</div>
-        <div class="exp-company">CMBK Consultancy · Bengaluru</div>
-        <ul class="exp-points">
-          <li>Engineered a Python ML pipeline to extract structured data from unstructured invoice documents — reduced manual effort by 30% and improved extraction accuracy by 20%.</li>
-          <li>Automated financial document workflows; performed testing, debugging, and API documentation.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-date">Jun 2025</div>
-      <div>
-        <div class="exp-role">Agentic AI Intern</div>
-        <div class="exp-company">Capbl · Bengaluru</div>
-        <ul class="exp-points">
-          <li>Built and orchestrated production GenAI applications with autonomous multi-step agentic workflows under industry mentorship.</li>
-          <li>Participated in hackathons, code reviews, and structured problem-solving sessions.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<section id="skills">
-  <div class="section-eyebrow">Toolkit</div>
-  <h2 class="section-title">Skills</h2>
-  <p class="section-sub">Languages, libraries, and tools I work with regularly.</p>
-  <div class="skills-grid">
-    <div class="skill-group">
-      <div class="skill-group-label">Languages</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Python</span><span class="skill-tag">SQL</span>
-        <span class="skill-tag">JavaScript</span><span class="skill-tag">C++</span><span class="skill-tag">Java</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-label">ML &amp; Data Science</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Scikit-Learn</span><span class="skill-tag">TensorFlow</span>
-        <span class="skill-tag">XGBoost</span><span class="skill-tag">LightGBM</span>
-        <span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span>
-        <span class="skill-tag">OpenCV</span><span class="skill-tag">BERT</span><span class="skill-tag">SHAP</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-label">GenAI &amp; Agentic AI</div>
-      <div class="skill-tags">
-        <span class="skill-tag">LangGraph</span><span class="skill-tag">Gemini API</span>
-        <span class="skill-tag">Claude API</span><span class="skill-tag">Prompt Engineering</span>
-        <span class="skill-tag">RAG</span><span class="skill-tag">LLMs</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-label">Web &amp; APIs</div>
-      <div class="skill-tags">
-        <span class="skill-tag">FastAPI</span><span class="skill-tag">REST APIs</span>
-        <span class="skill-tag">React.js</span><span class="skill-tag">JWT</span><span class="skill-tag">Angular</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-label">Databases &amp; Tools</div>
-      <div class="skill-tags">
-        <span class="skill-tag">MySQL</span><span class="skill-tag">PostgreSQL</span>
-        <span class="skill-tag">SQLAlchemy</span><span class="skill-tag">Firebase</span>
-        <span class="skill-tag">Docker</span><span class="skill-tag">Git</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-label">Visualization</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Matplotlib</span><span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<section id="research">
-  <div class="section-eyebrow">Publications &amp; Awards</div>
-  <h2 class="section-title">Research</h2>
-  <p class="section-sub">Peer-reviewed research in ML and data science applications.</p>
-  <div class="research-list">
-    <div class="research-item">
-      <div class="research-icon">📄</div>
-      <div>
-        <div class="research-title">Hybrid LSTM and Ensemble Model for Credit Card Fraud Detection</div>
-        <div class="research-meta">IJCOPE Journal · <span>Published May 2026</span></div>
-      </div>
-    </div>
-    <div class="research-item">
-      <div class="research-icon">📄</div>
-      <div>
-        <div class="research-title">Detection of Cardiovascular Disease Risk Using Heart Rate Variability and Machine Learning</div>
-        <div class="research-meta">Research Publication · <span>2026</span></div>
-      </div>
-    </div>
-    <div class="research-item">
-      <div class="research-icon">🏆</div>
-      <div>
-        <div class="research-title">RVITM Merit Award — Outstanding Performance during CMBK Consultancy Internship</div>
-        <div class="research-meta">Rashtreeya Vidyalaya Institute of Technology and Management · <span>2026</span></div>
-      </div>
-    </div>
-    <div class="research-item">
-      <div class="research-icon">🎓</div>
-      <div>
-        <div class="research-title">Machine Learning A–Z Certification</div>
-        <div class="research-meta">Udemy · <span>2025</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<section id="contact" style="padding-bottom:40px">
-  <div class="contact-box">
-    <h2>Let's build something together</h2>
-    <p>Open to AI/ML internship opportunities · 2027 batch · Based in Bengaluru</p>
-    <div class="contact-links">
-      <a href="mailto:Ruchitasaraf9@gmail.com" class="contact-link">✉️ Email</a>
-      <a href="https://github.com/ruchita0131" target="_blank" class="contact-link">⌥ GitHub</a>
-      <a href="https://www.linkedin.com/in/ruchita-saraf-592a54292" target="_blank" class="contact-link">in LinkedIn</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  Ruchita Saraf · AI/ML Engineer · RVITM Bengaluru · 2027 Batch
-</footer>
-
-</body>
+    <style>
+      * { cursor: none !important; }
+      html { scroll-behavior: smooth; }
+    </style>
+    <script type="module" crossorigin src="/assets/index-8ACiLV4j.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-C4XtRtaP.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
